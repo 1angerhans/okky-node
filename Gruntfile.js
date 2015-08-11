@@ -1,26 +1,24 @@
 // configure nodemon
 module.exports = function(grunt) {
   grunt.initConfig({
-   nodemon: {
-     dev: {
-       script: 'bin/www'
-     }
+    nodemon: {
+      dev: {
+        script: 'bin/www'
+      }
     },
 
+    watch: {
+      js: {
+        files: ['public/js/**/*.js', 'routes/js/**/*.js'],
+      }
+    },
 
-  watch: {
-   js: {
-    files: ['public/js/**/*.js', 'routes/js/**/*.js'],
-   }
-  },
-
-
-  concurrent: {
-   options: {
-    logConcurrentOutput: true
-   },
-   tasks: ['nodemon', 'watch']
- },
+    concurrent: {
+      options: {
+        logConcurrentOutput: true
+      },
+      tasks: ['nodemon', 'watch']
+    },
 
   mochaTest: {
     test: {
@@ -44,5 +42,5 @@ module.exports = function(grunt) {
 
 
   // register the nodemon task when we run grunt
-  grunt.registerTask('watch-nodemon', ['concurrent']);
+  grunt.registerTask('dev', ['concurrent']);
 };
