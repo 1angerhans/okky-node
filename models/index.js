@@ -27,6 +27,4 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.Avatar.belongsTo(db.User);
-
 module.exports = db;
